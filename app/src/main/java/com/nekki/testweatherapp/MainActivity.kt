@@ -8,7 +8,6 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import org.json.JSONObject
-import org.w3c.dom.Text
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*

@@ -111,9 +111,10 @@
                         android:src="@drawable/sunrise"
                         app:tint="#FFF">
                     </ImageView>
+
                     <Space
                         android:layout_width="wrap_content"
-                        android:layout_height="5dp"></Space>
+                        android:layout_height="5dp" />
                     <TextView
                         android:textSize="12sp"
                         android:text="Sunrise"
@@ -147,9 +148,10 @@
                         android:src="@drawable/sunset"
                         app:tint="#FFF">
                     </ImageView>
+
                     <Space
                         android:layout_width="wrap_content"
-                        android:layout_height="5dp"></Space>
+                        android:layout_height="5dp" />
                     <TextView
                         android:textSize="12sp"
                         android:text="Sunset"
@@ -183,9 +185,10 @@
                         android:src="@drawable/wind"
                         app:tint="#FFF">
                     </ImageView>
+
                     <Space
                         android:layout_width="wrap_content"
-                        android:layout_height="5dp"></Space>
+                        android:layout_height="5dp" />
                     <TextView
                         android:textSize="12sp"
                         android:text="Wind"
@@ -229,9 +232,10 @@
                         android:src="@drawable/pressure"
                         app:tint="#FFF">
                     </ImageView>
+
                     <Space
                         android:layout_width="wrap_content"
-                        android:layout_height="5dp"></Space>
+                        android:layout_height="5dp" />
                     <TextView
                         android:textSize="12sp"
                         android:text="Pressure"
@@ -265,9 +269,10 @@
                         android:src="@drawable/humidity"
                         app:tint="#FFF">
                     </ImageView>
+
                     <Space
                         android:layout_width="wrap_content"
-                        android:layout_height="5dp"></Space>
+                        android:layout_height="5dp" />
                     <TextView
                         android:textSize="12sp"
                         android:text="Humidity"
@@ -301,9 +306,10 @@
                         android:src="@drawable/info"
                         app:tint="#FFF">
                     </ImageView>
+
                     <Space
                         android:layout_width="wrap_content"
-                        android:layout_height="5dp"></Space>
+                        android:layout_height="5dp" />
                     <TextView
                         android:textSize="12sp"
                         android:text="Created by"
