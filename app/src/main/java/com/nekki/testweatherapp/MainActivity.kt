@@ -66,6 +66,25 @@ class MainActivity : AppCompatActivity() {
                 val windSpeed = wind.getString("speed")
                 val weatherDescription=weather.getString("description")
                 val address = jsonObj.getString("name")+", "+sys.getString("country")
+
+                findViewById<TextView>(R.id.address).text = address
+                findViewById<TextView>(R.id.updated_at).text = updatedAtText
+                findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
+                findViewById<TextView>(R.id.temp).text = temp
+                findViewById<TextView>(R.id.temp_min).text = tempMin
+                findViewById<TextView>(R.id.temp_max).text = tempMax
+                findViewById<TextView>(R.id.sunrise).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
+                findViewById<TextView>(R.id.sunset).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
+                findViewById<TextView>(R.id.wind).text = windSpeed
+                findViewById<TextView>(R.id.pressure).text = pressure
+                findViewById<TextView>(R.id.humidity).text = humidity
+
+                findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+                findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
+            }
+            catch (e: Exception){
+                findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+                findViewById<TextView>(R.id.errortext).visibility = View.VISIBLE
             }
         }
     }
