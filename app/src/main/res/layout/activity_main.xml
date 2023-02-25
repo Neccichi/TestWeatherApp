@@ -258,6 +258,7 @@
                     android:orientation="vertical"
                     android:padding="8dp">
 
+
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
@@ -274,14 +275,19 @@
                         android:text="Search"
                         android:textSize="12sp"></TextView>
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/input_city"
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:visibility="visible"
+                        android:fontFamily="sans-serif-thin"
+                        android:textColor="#FFF">
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textSize="14sp">
+                    </EditText>
 
-                    </TextView>
+
                 </LinearLayout>
 
                 <Space
@@ -374,12 +380,6 @@
             android:textSize="14sp"></TextView>
 
     </LinearLayout>
-    <EditText
-        android:id="@+id/input_city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible">
 
-    </EditText>
 
 </RelativeLayout>
