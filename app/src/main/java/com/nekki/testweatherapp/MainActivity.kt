@@ -1,12 +1,12 @@
 package com.nekki.testweatherapp
 
+import android.content.Intent
+import android.net.Uri
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
@@ -14,11 +14,35 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val CITY: String ="Lutsk"
+    var CITY: String ="Lutsk"
     val API: String = "cfd9e8e3402797481e0cf8b3ccfe10ea"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val infoButtonInst =  findViewById<LinearLayout>(R.id.info_btn)
+        infoButtonInst.setOnClickListener(){
+            val url = "https://instagram.com/tim_boniuk?igshid=YmMyMTA2M2Y="
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+
+        val searchCityBtn = findViewById<LinearLayout>(R.id.change_city_btn)
+        searchCityBtn.setOnClickListener {
+            val inputCity = findViewById<EditText>(R.id.input_city).text.toString()
+            if (inputCity.isNotEmpty()) {
+                CITY = inputCity
+                weatherTask().execute()
+            } else {
+                Toast.makeText(
+                    this,
+                    "Please enter a city name",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
 
         weatherTask().execute()
     }
@@ -58,7 +82,6 @@ class MainActivity : AppCompatActivity() {
                 val temp = main.getString("temp")+"°C"
                 val tempMin = "Min Temp: "+main.getString("temp_min")+"°C"
                 val tempMax = "Max Temp: "+main.getString("temp_max")+"°C"
-                val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity")
                 val sunrise:Long = sys.getLong("sunrise")
                 val sunset:Long = sys.getLong("sunset")
@@ -75,7 +98,6 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.sunrise).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
                 findViewById<TextView>(R.id.sunset).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
                 findViewById<TextView>(R.id.wind).text = windSpeed
-                findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
 
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
